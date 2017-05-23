@@ -1,0 +1,24 @@
+{
+  "name": "uebung5",
+  "version": "1.0.1",
+  "description": "My first module",
+  "dependencies": {
+    "lorem-ipsum": "latest"
+  },
+  "devDependencies": {
+    "browserify ": "latest",
+    "eslint": "latest",
+    "eslint-config-google": "^0.7.1",
+    "less": "latest",
+    "less-plugin-clean-css": "latest",
+    "place": "latest"
+  },
+  "scripts": {
+    "lint": "eslint -c ../.eslintrc.json src/js/*",
+    "html": "COPY src/index.html dist/index.html",
+    "css": "lessc src/styles/style.less dist/style.css",
+    "js": "browserify src/js/Main.js > dist/main.js",
+    "build": "",
+    "start": ""
+  }
+}

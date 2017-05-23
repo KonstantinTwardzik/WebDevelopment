@@ -1,0 +1,65 @@
+body {
+    padding: 0;
+    margin: 50px;
+    background: #ccc;
+    font-family: 'Open Sans', sans-serif;
+    color: #333;
+}
+
+#content {
+    background: #fff;
+    border-radius: 25px;
+    border: 2px solid #333;
+    padding: 20px;
+    width: 85%;
+    margin: 0 auto;
+}
+
+#box {
+    margin: 20px auto;
+    background: white;
+    padding: 10px;
+    border-radius: 7px;
+    border: 2px solid #333;
+}
+
+#box:nth-child(even) {
+    background: #ccc;
+}
+
+#box > #time {
+
+}
+
+#box > #title {
+    font-weight: bold;
+
+}
+
+#box > #note {
+
+}
+
+#box.family > #title::after {
+    content: "Familie";
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 3px;
+    font-size: 0.7em;
+}
+
+#box.sport > #title::after {
+    content: "Sport";
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 3px;
+    font-size: 0.7em;
+}
+
+#box.work > #title::after {
+    content: "Arbeit";
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 3px;
+    font-size: 0.7em;
+}
