@@ -1,20 +1,21 @@
 // Zählt verschieden Teile des Datensatzes und gibt diese aus
 function counter (array)
 {
-    var countAll = 0;
-    var countFem = 0;
-    var countNew = 0;
-    var countUns = 0;
-    var countAct = 0;
-    var topics;
-    var earliestDate = new Date("2017-01-01");
+    let countAll = 0;
+    let countFem = 0;
+    let countNew = 0;
+    let countUns = 0;
+    let countAct = 0;
+    let topics = [];
     
+    let earliestDate = toDate(array[0].created_at);
+
     for (let i=0; i<array.length; i++)
     {
-        var curObj = array[i];
-        var SubscribeDate = toDate(curObj.created_at);
-        var UnsubscribeDate = toDate(curObj.unsubscribed_at);
-        var proofDate = new Date("2017-01-01");
+        let curObj = array[i];
+        let SubscribeDate = toDate(curObj.created_at);
+        let UnsubscribeDate = toDate(curObj.unsubscribed_at);
+        let proofDate = new Date("2017-01-01");
 
         // Zählung einträge
         countAll++;
@@ -35,17 +36,21 @@ function counter (array)
         if (curObj.unsubscribed_at == null)
             countAct++;
             
-        // Themen der frühesten noch aktiven Nutzer - falsch implementiert
-        if (curObj.unsubscribed_at == null && SubscribeDate <= earliestDate)
+        // Themen der frühesten noch aktiven Nutzer 
+        if (SubscribeDate <= earliestDate && UnsubscribeDate == null)
+        {
+            if (SubscribeDate < earliestDate)
             {
-            topics = curObj.topics;
-            earliestDate = SubscribeDate;
-
+                earliestDate = SubscribeDate;
+                topics = [];
+                topics.push(curObj.topics);
+            }
+            else
+            {
+                topics.push(curObj.topics);
+            }
         }
-
-
     }
-
 
     console.log("Einträge: " + countAll);
     console.log("Frauen: " + countFem);
@@ -60,38 +65,29 @@ function toDate (dateString)
 {
     if(dateString != null)
         {
-            var parts = dateString.split(".");
+            let parts = dateString.split(".");
             return new Date (parts[2], parts[1]-1, parts[0],2);
         }
     else return null;
 }
 
-//Entfernt das erste Objekt im Array, hinterlässt jedoch einen leeren index
-function deleteElement (array)
-{
-    console.log(array.length);
-    delete array[0];
-    console.log(array.length);
-}
-
-//Entfernt Objekte im Array ganz
-function spliceElement (array)
-{
-    console.log(array.length);
-    array.splice(999,1);
-    array.splice(498,1);
-    array.splice(0,1);
-    console.log(array.length);
-}
-
-
-
-var dataset = require(`./dataset.json`);
-
+// JSON Datei auslesen und Counter laufen lassen
+let dataset = require(`./dataset.json`);
 counter(dataset.data);
-console.log();
-deleteElement(dataset.data);
-console.log();
-spliceElement(dataset.data);
-console.log();
-console.log(Object.keys(dataset.data[0]));
+
+// delete löscht Elemente. Hinterlässt jedoch ein leeres Objekt an jener Stelle
+console.log(dataset.data);
+delete dataset.data[0];
+delete dataset.data[499];
+delete dataset.data[999];
+console.log(dataset.data);
+
+// splice Eliminiert die Elemente ganz aus dem Array
+dataset.data.splice(0,1);
+dataset.data.splice(499,1);
+dataset.data.splice(900,99);
+console.log(dataset.data);
+
+// Test der Aufgabe 4 (Leider immer noch falsches Ergebnis bei: Gekündigt bis 01.01.2017)
+let dataSetFixed = require ("./dataset-fixed.json");
+counter(dataSetFixed.data);

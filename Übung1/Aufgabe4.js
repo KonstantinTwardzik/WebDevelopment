@@ -1,3 +1,12 @@
+let data =
+[
+    "Justus, Peter und Bob",
+    "Christian",
+    "Susi und Strolch",
+    "Heinz",
+    "Daniel,Gert"
+]
+
 function split(curVal, index, array)
 {
     let newVal;
@@ -12,15 +21,6 @@ function split(curVal, index, array)
     }
 }
 
-
-let data =
-[
-    "Justus, Peter und Bob",
-    "Christian",
-    "Susi und Strolch",
-    "Heinz",
-    "Daniel,Gert"
-]
 var x = data.length;
 data.forEach(split);
 data.splice(0,x);
