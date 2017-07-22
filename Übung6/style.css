@@ -1,0 +1,106 @@
+body {
+  color: #ffffff;
+  font-family: 'Lemonada', cursive;
+  font-size: 1em;
+}
+#Aktivitäten {
+  border-style: solid;
+  border-color: #ffffff;
+  border-width: 0.1em;
+  border-radius: 0px;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  background-color: #252525;
+}
+li {
+  border-style: solid;
+  border-color: #ffffff;
+  border-width: 0.1em;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+}
+.Rechts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+.Arbeit {
+  background-color: #29088A;
+}
+.Arbeit .Titel:after {
+  content: "Arbeit";
+  font-size: 0.75em;
+  border-style: solid;
+  border-color: #ffffff;
+  border-width: 0.1em;
+  border-radius: 5px;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+.Arbeit .Notiz:before {
+  content: "Notiz: ";
+}
+.Arbeit:hover {
+  background-color: #5c3bbd;
+  border-width: 0.2em;
+}
+.Sport {
+  background-color: #8A0808;
+}
+.Sport .Titel:after {
+  content: "Sport";
+  font-size: 0.75em;
+  border-style: solid;
+  border-color: #ffffff;
+  border-width: 0.1em;
+  border-radius: 5px;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+.Sport .Notiz:before {
+  content: "Notiz: ";
+}
+.Sport:hover {
+  background-color: #bd3b3b;
+  border-width: 0.2em;
+}
+.Familie {
+  background-color: #0B6121;
+}
+.Familie .Titel:after {
+  content: "Familie";
+  font-size: 0.75em;
+  border-style: solid;
+  border-color: #ffffff;
+  border-width: 0.1em;
+  border-radius: 5px;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+.Familie .Notiz:before {
+  content: "Notiz: ";
+}
+.Familie:hover {
+  background-color: #3e9454;
+  border-width: 0.2em;
+}

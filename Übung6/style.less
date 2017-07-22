@@ -1,0 +1,118 @@
+@borderColor: #ffffff;
+@backgroundColor: #252525;
+@borderWidth: 0.1em;
+@font: 'Lemonada', cursive;
+@fontSize: 1em;
+@lighten: #333333;
+
+.margin(@marginTop:0.25em, @marginBottom:0.25em) {
+    margin-top: @marginTop;
+    margin-bottom: @marginBottom;
+}
+
+.padding(@paddingTop:0.25em, @paddingBottom:0.25em, @paddingLeft:0.5em, @paddingRight:0.5em,)
+{
+    padding-top: @paddingTop;
+    padding-bottom: @paddingBottom;
+    padding-left: @paddingLeft;
+    padding-right: @paddingRight;
+}
+
+.border(@borderRadius: 0px) {
+    border-style: solid;
+    border-color: @borderColor;
+    border-width: @borderWidth;
+    border-radius: @borderRadius;
+}
+
+.flex(@flexDirection: column, @alignItems: flex-start) {
+    display: flex;
+    flex-direction: @flexDirection;
+    align-items: @alignItems;
+}
+
+
+body {
+    color: @borderColor;
+    font-family: @font;
+    font-size: @fontSize;
+}
+
+#Aktivitäten {
+    .border();
+    .padding();
+    background-color: @backgroundColor;
+}
+
+li {
+    .border(10px);
+    .flex(row,center);
+    .padding();
+    .margin();
+}
+
+.Rechts {
+    .flex();
+    .padding();
+}
+
+.Arbeit {
+    background-color: #29088A;
+    
+    .Titel:after{
+        content: "Arbeit";
+        font-size: @fontSize - 0.25em;
+        .border(5px);
+        .padding();
+    }
+
+    .Notiz:before{
+        content: "Notiz: ";
+    }
+
+    &:hover {
+        background-color: #29088A + @lighten;
+        border-width: @borderWidth * 2;
+    }
+}
+
+.Sport {
+    background-color: #8A0808;
+    
+    .Titel:after{
+        content: "Sport";
+        font-size: @fontSize - 0.25em;
+        .border(5px);
+        .padding();
+    }
+
+    .Notiz:before{
+        content: "Notiz: ";
+    }
+
+    &:hover {
+        background-color: #8A0808 + @lighten;
+        border-width: @borderWidth * 2;           
+    }
+}
+
+.Familie {
+    background-color: #0B6121;   
+
+    .Titel:after{
+        content: "Familie";
+        font-size: @fontSize - 0.25em;
+        .border(5px);
+        .padding();
+    }
+
+    .Notiz:before{
+        content: "Notiz: ";
+    }
+    
+    &:hover {
+        background-color: #0B6121 + @lighten;
+        border-width: @borderWidth * 2;  
+    }
+}
+

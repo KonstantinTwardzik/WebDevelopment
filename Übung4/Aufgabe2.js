@@ -1,11 +1,12 @@
+// http Standardmodul importieren
 const http = require("http");
 
+// http GET anfrage
 http.get('http://swapi.co/api/people/2/', (res) => {
   const { statusCode } = res;
   const contentType = res.headers['content-type'];
-
-
   let error;
+
   if (statusCode !== 200) {
     error = new Error(`Request Failed.\n` +
                       `Status Code: ${statusCode}`);
@@ -13,6 +14,7 @@ http.get('http://swapi.co/api/people/2/', (res) => {
     error = new Error(`Invalid content-type.\n` +
                       `Expected application/json but received ${contentType}`);
   }
+  
   if (error) {
     console.error(error.message);
     // consume response data to free up memory

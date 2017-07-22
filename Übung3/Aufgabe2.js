@@ -1,32 +1,24 @@
 // In die Variable ToolClass wird die Tool "Klasse" gespeichert um Namensüberschneidung zu verhindern
 var ToolClass = ToolClass || (function (){
-
-// Die Tool "Klasse"
 Tool.Container = [];
 Tool.ID = 0;
-
 function Tool(arrayIn) {
     this.ID = Tool.ID++;
     this.ContainedArray = arrayIn;
     Tool.Container.push(this);
 };
-
 Tool.prototype.create = function(element){
     return this.ContainedArray.push(element);
 };
-
 Tool.prototype.getAll = function(){
-    return this;
-};
-
+    console.log(this);
+}
 Tool.prototype.getByID = function (ID){
-    return Tool.Container[ID]
-};
-
+    console.log(Tool.Container[ID])
+}
 return{
     Tool: Tool
 };
-
 })();
 
 // Initialisierung 
@@ -39,7 +31,7 @@ var maya = new ToolClass.Tool (["Autodesk Maya", "462D-EF3B-2F35D", "2017-09-06"
 
 // Ausführung
 photoshop.create("Magic");
-console.log(photoshop.getAll());
-console.log(maya.getAll());
-console.log(ToolClass.Tool.prototype.getByID(3));
+photoshop.getAll();
+maya.getAll();
+ToolClass.Tool.prototype.getByID(3);
 

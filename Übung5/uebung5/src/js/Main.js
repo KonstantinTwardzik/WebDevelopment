@@ -1,6 +1,2 @@
-(function () {
-	let loremIpsum = require("lorem-ipsum");
-    var xy;
-	setInterval(loremIpsum(), 1000);
-	setInterval(console.log(loremIpsum()), 1000)
-})();
+let loremIpsum = require("lorem-ipsum");
+setInterval(function () { document.getElementById("Lorem").innerHTML += loremIpsum(); }, 1000);

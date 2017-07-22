@@ -1,38 +1,30 @@
 // In die Variable ToolClass wird die Tool "Klasse" gespeichert um Namensüberschneidung zu verhindern
 var ToolClass = ToolClass || (function (){
-
-// Die Tool "Klasse"
 Tool.Container = [];
 Tool.ID = 0;
-
 function Tool(arrayIn) {
     this.ID = Tool.ID++;
     this.ContainedArray = arrayIn;
     Tool.Container.push(this);
 };
-
 Tool.prototype.create = function(element){
     return this.ContainedArray.push(element);
 };
-
 Tool.prototype.getAll = function(){
-    return this;
-};
-
+    console.log(this);
+}
 Tool.prototype.getByID = function (ID){
-    return Tool.Container[ID]
-};
+    console.log(Tool.Container[ID])
+}
 
 // Die Pseudoklassisch abgeleitete TypedTool "Klasse" 
 function TypedTool (arrayIn, type){
     Tool.call(this, arrayIn);
     this.type = type;
 }
-
 // Überschreiben des impliziert kreierten Prototypen und Prototypen verlinken 
 TypedTool.prototype = Object.create(Tool.prototype);
 TypedTool.prototype.constructor = TypedTool;
-
 // Überschreibende Methoden
 TypedTool.prototype.create = function (element){
     if (typeof(element) == this.type){
@@ -47,7 +39,6 @@ return{
     Tool: Tool,
     TypedTool: TypedTool
 };
-
 })();
 
 // Initialisierung Tool
@@ -64,12 +55,12 @@ var mayaTyped = new ToolClass.TypedTool (["Autodesk Maya", "462D-EF3B-2F35D", "2
 
 // Ausführung Tool
 photoshop.create("Magic");
-console.log(photoshop.getAll());
-console.log(maya.getAll());
-console.log(ToolClass.Tool.prototype.getByID(3));
+photoshop.getAll();
+maya.getAll();
+ToolClass.Tool.prototype.getByID(3);
 
 // Ausführung TypedTool
 mayaTyped.create("over9000");
 mayaTyped.create(9001);
-console.log(mayaTyped.getAll());
+mayaTyped.getAll();
 

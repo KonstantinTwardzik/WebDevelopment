@@ -1,4 +1,4 @@
-// Die Tool "Klasse"
+// Die Container "Klasse"
 Tool.Container = [];
 Tool.ID = 0;
 
@@ -13,11 +13,11 @@ Tool.prototype.create = function(element){
 }
 
 Tool.prototype.getAll = function(){
-    return this;
+    console.log(this);
 }
 
 Tool.prototype.getByID = function (ID){
-    return Tool.Container[ID]
+    console.log(Tool.Container[ID])
 }
 
 // Initialisierung 
@@ -30,7 +30,7 @@ var maya = new Tool (["Autodesk Maya", "462D-EF3B-2F35D", "2017-09-06", "Modelin
 
 // Ausführung
 photoshop.create("Magic");
-console.log(photoshop.getAll());
-console.log(maya.getAll());
-console.log(Tool.prototype.getByID(3));
+photoshop.getAll();
+maya.getAll();
+Tool.prototype.getByID(3);
 

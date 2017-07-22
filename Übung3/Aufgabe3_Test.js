@@ -13,7 +13,7 @@ var maya = new ToolClass.Tool (["Autodesk Maya", "462D-EF3B-2F35D", "2017-09-06"
 
 // Ausführung
 photoshop.create("Magic");
-console.log(photoshop.getAll());
-console.log(maya.getAll());
-console.log(ToolClass.Tool.prototype.getByID(3));
+photoshop.getAll();
+maya.getAll();
+ToolClass.Tool.prototype.getByID(3);
 

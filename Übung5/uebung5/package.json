@@ -1,24 +1,32 @@
 {
   "name": "uebung5",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KonstantinTwardzik/WebDevelopment.git"
+  },
   "version": "1.0.1",
   "description": "My first module",
   "dependencies": {
     "lorem-ipsum": "latest"
   },
   "devDependencies": {
-    "browserify ": "latest",
+    "browserify": "latest",
     "eslint": "latest",
     "eslint-config-google": "^0.7.1",
     "less": "latest",
     "less-plugin-clean-css": "latest",
-    "place": "latest"
+    "place": "latest",
+    "http-server": "latest"
   },
   "scripts": {
+    "clean": " npm run clean:dist && rm -rf node_modules",
+    "clean:dist": "rm -rf dist",
     "lint": "eslint -c ../.eslintrc.json src/js/*",
-    "html": "COPY src/index.html dist/index.html",
+    "html": "cp src/index.html dist/index.html && cp -r src/assets/* dist/",
     "css": "lessc src/styles/style.less dist/style.css",
     "js": "browserify src/js/Main.js > dist/main.js",
-    "build": "",
-    "start": ""
+    "build": "npm run lint && mkdir dist && npm run html && npm run css && npm run js",
+    "start": "npm run build && http-server ./dist -p 8080 -c 127.0.0.1 "
   }
 }
