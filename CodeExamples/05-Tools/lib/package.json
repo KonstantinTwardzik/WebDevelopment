@@ -1,0 +1,26 @@
+{
+	"name": "lib",
+	"version": "1.0.0",
+	"description": "Example Class Library",
+	"author": "Christian Bettinger <c.bettinger@hochschule-trier.de>",
+	"license": "UNLICENSED",
+	"private": true,
+	"dependencies": {
+		"random-curse-words": "latest"
+	},
+	"devDependencies": {
+    	"eslint": "latest",
+		"jsdoc": "latest",
+		"docdash": "latest",
+		"mocha": "latest"
+  	},
+	"scripts": {
+		"clean": "rm -rf doc && rm -rf node_modules",
+
+		"lint": "eslint -c ../.eslintrc.json src/**",
+
+		"doc": "jsdoc src -c jsdoc.json",
+
+		"test": "mocha"
+	}
+}

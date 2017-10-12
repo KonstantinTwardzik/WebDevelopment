@@ -14,7 +14,7 @@ function calcWeightedSum()
     let weightedSum = this.reduce(function(acc,val) {
         return acc += val["value"] * val["weight"];
     }, 0);
-    return weightedSum
+    return weightedSum 
 }
 
 data.calcWeightedSum = calcWeightedSum.bind(data);

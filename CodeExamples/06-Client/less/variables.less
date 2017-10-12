@@ -1,0 +1,29 @@
+@header-height: 200px;
+@footer-height: 100px;
+
+header {
+   position: absolute;
+   left: 0;
+   right: 0;
+   top: 0;
+   height: @header-height;
+   background-color: lightcoral;
+}
+
+main {
+   position: absolute;
+   left: 0;
+   right: 0;
+   top: @header-height;
+   bottom: @footer-height;
+   background-color: lightgreen;
+}
+
+footer {
+   position: absolute;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   height: @footer-height;
+   background-color: lightblue;
+}

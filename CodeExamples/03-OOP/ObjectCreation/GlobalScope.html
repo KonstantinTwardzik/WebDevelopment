@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Global Scope</title>
+</head>
+<body>
+    <script>
+    var ACustomObject = { property: "value" };
+    var ACustomObject2 = { doSomethingStupid: function () {
+        AStupidIdea = { message: "Don't forget the var keyword!"}
+    }};
+    ACustomObject2.doSomethingStupid();
+    console.log("Ready.");
+    </script>
+</body>
+</html>

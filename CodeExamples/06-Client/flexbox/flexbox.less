@@ -1,0 +1,49 @@
+.flex-container {
+	background-color: lightgray;
+	
+	display: flex;						// enable flexbox layout
+	//flex-direction: column; 			// set the main axis, default: row
+	flex-wrap: wrap; 					// enable wrapping of flex items, default: nowrap
+	
+	justify-content: flex-start;		// alignment along the main axis within line
+	//justify-content: flex-end;		// default: flex-start
+	//justify-content: center;
+	//justify-content: space-between;
+	//justify-content: space-around;
+	
+	align-items: stretch;				// alignment along the cross axis within line
+	//align-items: flex-start;			// default: stretch
+	//align-items: flex-end;
+	//align-items: center;
+	//align-items: baseline;
+
+	//height: 500px;
+	align-content: stretch;				// alignment of lines on the cross-axis if there is extra space available
+	//align-content: flex-start;		// default: stretch
+	//align-content: flex-end;
+	//align-content: center;
+	//align-content: space-between;
+	//align-content: space-around;
+
+	& > * {
+		background-color: lightpink;
+		margin: 10px;
+	}
+
+	& > h1 {
+		font-size: 5em;
+		font-weight: normal;
+	}
+
+	& > p {
+		font-size: 1.5em;
+	}
+}
+
+h1.flex-item {
+	//flex-grow: 4;					// factor by which the extra space within a line is distributed among the flex-items				
+}
+
+p.flex-item {
+	//flex-grow: 1;					// default: 0 (flex items do not grow)
+}

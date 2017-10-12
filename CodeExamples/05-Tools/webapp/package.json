@@ -1,0 +1,43 @@
+{
+	"name": "webapp",
+	"version": "1.0.0",
+	"description": "Example WebApp",
+	"author": "Christian Bettinger <c.bettinger@hochschule-trier.de>",
+	"license": "UNLICENSED",
+	"private": true,
+	"dependencies": {
+		"bowser": "latest",
+		"lib": "file:../lib"
+	},
+	"devDependencies": {
+		"eslint": "latest",
+		"place": "latest",
+		"less": "latest",
+		"less-plugin-clean-css": "latest",
+		"browserify": "latest",
+		"babili": "latest"
+	},
+	"scripts": {
+		"clean": "npm run clean:dist && rm -rf node_modules",
+		"clean:dist": "rm -rf dist",
+		
+		"lint": "eslint -c ../.eslintrc.json js/**",
+		
+		"static": "cp -r src/assets/. dist && cp src/index.html dist/index.html",
+		"static:min": "npm run static && place dist/index.html style.css style.min.css && place dist/index.html main.js main.min.js",
+		
+		"css": "lessc src/styles/style.less dist/style.css",
+		"css:min": "lessc --clean-css src/styles/style.less dist/style.min.css",
+		
+		"prejs": "npm install lib",
+		"js": "browserify src/js/Main.js > dist/main.js",
+		"js:min": "npm run js && babili dist/main.js > dist/main.min.js",
+		"postjs:min": "rm -f dist/main.js",
+		
+		"predebug": "npm run lint",
+		"debug": "npm run clean:dist && mkdir dist && npm run static && npm run css && npm run js",
+		
+		"prebuild": "npm run lint",
+		"build": "npm run clean && npm install && mkdir dist && npm run static:min && npm run css:min && npm run js:min"
+	}
+}

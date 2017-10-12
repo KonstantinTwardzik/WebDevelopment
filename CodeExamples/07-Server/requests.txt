@@ -1,0 +1,23 @@
+GET http://localhost:8080 HTTP/1.1
+
+GET http://localhost:8080/json HTTP/1.1
+
+GET http://localhost:8080/XXX HTTP/1.1
+
+GET http://localhost:8080/data HTTP/1.1
+
+POST http://localhost:8080/data HTTP/1.1
+content-type: application/json
+
+{
+    "message": "Hello, World!",
+    "user": "bettingc"
+}
+
+PUT http://localhost:8080/data HTTP/1.1
+content-type: application/json
+
+{
+    "message": "Hello, World!",
+    "user": "bettingc"
+}
