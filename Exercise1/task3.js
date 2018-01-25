@@ -1,4 +1,4 @@
-let calcWeightedSum = function () {
+function calcWeightedSum () {
     let weightedSum = 0;
 
     //Reduces the array 
@@ -24,4 +24,3 @@ data.calcWeightedSum = calcWeightedSum.bind(data);
 
 console.log(data.calcWeightedSum());
 
-//??? WTF
