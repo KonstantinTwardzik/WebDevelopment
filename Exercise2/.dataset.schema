@@ -1,0 +1,69 @@
+{
+	"$schema": "http://json-schema.org/schema#",
+	"type": "object",
+	"title": "Example Dataset",
+	"properties": {
+		"data": {
+			"type": "array",
+			"description": "Data retrieved from server.",
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "number",
+						"description": "Id of dataset entry."
+					},
+					"gender": {
+						"description": "Gender of subscriber (Null if unknown)",
+						"enum": [
+							"Female",
+							"Male",
+							null
+						]
+					},
+					"created_at": {
+						"type": "string",
+						"description": "Date of creation in DD.MM.YYYY format"
+					},
+					"topics": {
+						"type": "array",
+						"description": "Subscribed topics",
+						"minItems": 1,
+						"uniqueItems": true,
+						"items": {
+							"type": "string",
+							"enum": [
+								"technology",
+								"gaming",
+								"books",
+								"development",
+								"series",
+								"mac",
+								"linux",
+								"windows",
+								"movies",
+								"video"
+							]
+						},
+						"additionalItems": false
+					},
+					"unsubscribed_at": {
+						"type": [
+							"string",
+							"null"
+						],
+						"description": "DD.MM.YYYY of unsubscription (optional - null equals an active subscription)"
+					}
+				}
+			}
+		},
+		"retrieved_at": {
+			"type": "string",
+			"description": "Timestamp of retrieval from server."
+		}
+	},
+	"required": [
+		"retrieved_at",
+		"data"
+	]
+}
