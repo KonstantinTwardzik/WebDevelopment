@@ -1,0 +1,16 @@
+{
+    "name": "exercise5",
+    "version": "0.1",
+    "dependencies": 
+    {
+        "lorem-ipsum": "latest"
+    },
+    "devDependencies": 
+    {
+        
+    },
+    "scripts": 
+    {
+        
+    }
+}

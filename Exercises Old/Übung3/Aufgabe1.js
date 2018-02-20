@@ -9,11 +9,11 @@ function Tool(arrayIn) {
 }
 
 Tool.prototype.create = function(element){
-    return this.ContainedArray.push(element);
+    this.ContainedArray.push(element);
 }
 
 Tool.prototype.getAll = function(){
-    console.log(this);
+    return this.ContainedArray;
 }
 
 Tool.prototype.getByID = function (ID){
