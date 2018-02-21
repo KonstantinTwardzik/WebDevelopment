@@ -1,6 +1,3 @@
-(function () 
-{
-    let loremIpsum = require("lorem-ipsum");
+let loremIpsum = require("lorem-ipsum");
+setInterval(function () { document.getElementById("Lorem").innerHTML += loremIpsum(); }, 1000);
 
-    window.setInterval(console.log(loremIpsum()),100);   
-})
